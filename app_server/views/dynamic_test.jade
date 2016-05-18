@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title MyGame
+    link(rel='stylesheet', href='/stylesheets/mystyle.css')
+    // JAVASCRIPT
+    script(src='http://code.jquery.com/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='/javascripts/myScript.js')
+  body(onload='footer_info();')
+    .page-wrap
+      header.header
+        .header_inner
+          .navigation
+            ul.navigation_inner
+              li
+                a.active(href='index.html') Home
+              li
+                a(href='game') Play Game
+              li
+                a(href='references.html') References used
+              li
+                a(href='howto.html') How To Play
+              li
+                a(href='about.html') About
+              li 
+                a(href='dynamic_test') DYNAMIC_TEST
+      .main-content
+        .about_theme_left
+          h1=value
+    footer#fixed
+      .footer_title
+        h4  University of Western Australia
+        h4#last_modified
+        h4 Last visited: dd/mm/yyyy
+
