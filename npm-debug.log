@@ -1,35 +1,35 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/Users/evgenyrogozik/.npm-packages/bin/npm',
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\ccc\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'start' ]
-2 info using npm@3.8.2
-3 info using node@v5.9.0
+2 info using npm@3.9.0
+3 info using node@v4.4.4
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle test1@0.0.0~prestart: test1@0.0.0
 6 silly lifecycle test1@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle test1@0.0.0~start: test1@0.0.0
 8 verbose lifecycle test1@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle test1@0.0.0~start: PATH: /Users/evgenyrogozik/.npm-packages/lib/node_modules/npm/bin/node-gyp-bin:/Users/evgenyrogozik/test1/node_modules/.bin:/usr/local/bin:/Users/evgenyrogozik/.npm-packages/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin
-10 verbose lifecycle test1@0.0.0~start: CWD: /Users/evgenyrogozik/test1
-11 silly lifecycle test1@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
+9 verbose lifecycle test1@0.0.0~start: PATH: C:\Users\ccc\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Users\ccc\Documents\Web_proj2\node_modules\.bin;C:\Program Files\nodejs;C:\Users\ccc\AppData\Roaming\npm;C:\Program Files\nodejs\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\TXE Components\TCS\;C:\Program Files\Intel\TXE Components\TCS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Hewlett-Packard\SimplePass\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Git\cmd;C:\Program Files\nodejs\; C:\Program Files\MongoDB\Server\3.2\bin;C:\Users\ccc\AppData\Roaming\npm; C:\Program Files\MongoDB\Server\3.2\bin
+10 verbose lifecycle test1@0.0.0~start: CWD: C:\Users\ccc\Documents\Web_proj2
+11 silly lifecycle test1@0.0.0~start: Args: [ '/d /s /c', 'node ./bin/www' ]
 12 silly lifecycle test1@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle test1@0.0.0~start: Failed to exec start script
 14 verbose stack Error: test1@0.0.0 start: `node ./bin/www`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/Users/evgenyrogozik/.npm-packages/lib/node_modules/npm/lib/utils/lifecycle.js:239:16)
-14 verbose stack     at emitTwo (events.js:100:13)
-14 verbose stack     at EventEmitter.emit (events.js:185:7)
-14 verbose stack     at ChildProcess.<anonymous> (/Users/evgenyrogozik/.npm-packages/lib/node_modules/npm/lib/utils/spawn.js:24:14)
-14 verbose stack     at emitTwo (events.js:100:13)
-14 verbose stack     at ChildProcess.emit (events.js:185:7)
-14 verbose stack     at maybeClose (internal/child_process.js:850:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\ccc\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:245:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\ccc\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:827:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid test1@0.0.0
-16 verbose cwd /Users/evgenyrogozik/test1
-17 error Darwin 14.5.0
-18 error argv "/usr/local/bin/node" "/Users/evgenyrogozik/.npm-packages/bin/npm" "start"
-19 error node v5.9.0
-20 error npm  v3.8.2
+16 verbose cwd C:\Users\ccc\Documents\Web_proj2
+17 error Windows_NT 6.3.9600
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\ccc\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v4.4.4
+20 error npm  v3.9.0
 21 error code ELIFECYCLE
 22 error test1@0.0.0 start: `node ./bin/www`
 22 error Exit status 1

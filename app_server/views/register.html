@@ -1,0 +1,48 @@
+extends layout
+<body onload="footer_info();">
+  <div class="page-wrap">
+    <header class="header">
+      <div class="header_inner">
+        <div class="navigation">
+          <ul class="navigation_inner">
+            <li><a href="/">Home</a></li>
+            <li><a href="game">Play Game</a></li>
+            <li><a href="references.html">References used</a></li>
+            <li><a href="howto.html">How To Play</a></li>
+            <li><a href="about.html">About</a></li>
+            <li> <a href="dynamic_test">DYNAMIC_TEST</a></li>
+            <li style="pointer-events: none;"><a href="register" class="active">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="main-content">
+      <div class="content">
+			<h1>Registration Form</h1>
+			<form>
+				Given name:<br>
+				<input type="text" name="given_name"><br>
+				Surname:<br>
+				<input type="text" name="surname"><br>
+				Date of Birth:<br>
+				<input type="date" name="dob"><br>
+				E-mail Address:<br>
+				<input type="email" name="email"><br>
+				User Name:<br>
+				<input type="text" name="user_name"><br>
+				Password:<br>
+				<input type="password" name="pass1"><br>
+				Confirm Password:<br>
+				<input type="password" name="pass2"><br><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+  </div>
+  <footer>
+    <div class="footer_title">
+      <h4> University of Western Australia</h4>
+      <h4 id="last_modified"></h4>
+      <h4>Last visited: dd/mm/yyyy</h4>
+    </div>
+  </footer>
+</body>

@@ -1,0 +1,61 @@
+extends layout
+block content
+  body(onload='footer_info();')
+    .page-wrap
+      header.header
+        .header_inner
+          .navigation
+            ul.navigation_inner
+              li
+                a(href='/') Home
+              li
+                a(href='game') Play Game
+              li
+                a(href='references.html') References used
+              li
+                a(href='howto.html') How To Play
+              li
+                a(href='about.html') About
+              li
+                a(href='dynamic_test') DYNAMIC_TEST
+              li(style='pointer-events: none;')
+                a.active(href='register') Register
+      .main-content
+        .content
+          h1 Registration Form
+          form#formAddUser(name="adduser",method="post",action="/adduser")
+            | Given name:
+            br
+            input(type='text', name='given_name')
+            br
+            |         Surname:
+            br
+            input(type='text', name='surname')
+            br
+            |         Date of Birth:
+            br
+            input(type='date', name='dob')
+            br
+            |         E-mail Address:
+            br
+            input(type='email', name='email')
+            br
+            |         User Name:
+            br
+            input(type='text', name='user_name')
+            br
+            |         Password:
+            br
+            input(type='password', name='pass1')
+            br
+            |         Confirm Password:
+            br
+            input(type='password', name='pass2')
+            br
+            br
+            input(type='submit', value='Submit')
+      footer
+        .footer_title
+          h4  University of Western Australia
+          h4#last_modified
+          h4 Last visited: dd/mm/yyyy

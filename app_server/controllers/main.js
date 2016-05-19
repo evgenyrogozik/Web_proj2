@@ -23,3 +23,7 @@ module.exports.game = function (req, res) {
 module.exports.dynamic_test = function (req, res) {
 	res.render('dynamic_test',{title: 'TEST', heading: 'HELLO WORLD', value: 2, description: 'This is description'});
 };
+
+module.exports.register = function (req, res) {
+	res.render('register',{title: 'Registration'});
+};
