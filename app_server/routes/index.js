@@ -21,9 +21,13 @@ router.get('/dynamic_test', ctrlMain.dynamic_test)
 
 router.get('/register', ctrlMain.register)
 
+router.get('/login', ctrlMain.login)
+
 
 /* POST to Add User Service */
 router.post('/adduser', ctrlMain.adduser);
+
+router.post('/userlogin', ctrlMain.userlogin);
 
 
 module.exports = router;

@@ -36,7 +36,7 @@ function reg(req, res) {
 
 module.exports.adduser = function(req, res) {
 
-	var newuser = new User({first_name: req.body.given_name, surname: req.body.surname, dob: req.body.dob, email: req.body.email, user_name: req.body.username, password: req.body.password});
+	var newuser = new User({first_name: req.body.given_name, surname: req.body.surname, dob: req.body.dob, email: req.body.email, user_name: req.body.user_name, password: req.body.pass1});
 	console.log(newuser);
 	newuser.save(function(err, data) {
 		if(err) {
@@ -86,6 +86,53 @@ module.exports.adduser = function(req, res) {
             console.log("Hello");
         }
     });
-*/
+    */
 
+}
+
+
+module.exports.login = login;
+
+function login(req, res) {
+    res.render('login',{title: 'Login Page'});
+};
+
+
+module.exports.userlogin = function(req, res) {
+
+    var s = User.find(function(err, data) {
+        for(var i in s) {
+            console.log(s);
+            break;
+        }
+        if(err) {
+            console.log(err);
+            res.status(500);
+            res.render('error', {
+                message:err.message,
+                error: err
+            });
+        }
+
+        else {
+            for (var x in s) {
+                break;
+                if (s.user_name == req.body.user_name) {
+                    if (s.password == req.body.pass) {
+                        console.log ("Logged In");
+                        login(req, res);
+                    }
+                    else {
+                        console.log("Wrong password");
+                    }
+                }
+                else {
+                    console.log(req.body.user_name + " is not registered");
+                }
+            }
+            login(req, res);
+        }
+
+    });
+    
 }

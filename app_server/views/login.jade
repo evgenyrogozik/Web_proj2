@@ -18,42 +18,19 @@ block content
                 a(href='about.html') About
               li
                 a(href='dynamic_test') DYNAMIC_TEST
-              li(style='pointer-events: none;')
-                a.active(href='register') Register
+              li
+                a(href='register') Register
       .main-content
         .content
-          h1 Registration Form
-          h3
-            a(href='login') Login
-          form#formAddUser(name="adduser",method="post",action="/adduser")
-            | Given name:
-            br
-            input(type='text', name='given_name')
-            br
-            |         Surname:
-            br
-            input(type='text', name='surname')
-            br
-            |         Date of Birth:
-            br
-            input(type='date', name='dob')
-            br
-            |         E-mail Address:
-            br
-            input(type='email', name='email')
-            br
+          h1 Login
+          form#formUserLogin(name="userlogin",method="post",action="/userlogin")
             |         User Name:
             br
             input(type='text', name='user_name')
             br
             |         Password:
             br
-            input(type='password', name='pass1')
-            br
-            |         Confirm Password:
-            br
-            input(type='password', name='pass2')
-            br
+            input(type='password', name='pass')
             br
             input(type='submit', value='Submit')
       footer
