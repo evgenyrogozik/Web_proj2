@@ -13,6 +13,6 @@ mongoose.connection.on('disconnected', function () {
 	console.log('Mongoose disconnected');
 });
 
-require('./user_model');
-require('./standings_model');
-require('./comments_model');
+require('./user_model.js');
+require('./standings_model.js');
+require('./comments_model.js');
