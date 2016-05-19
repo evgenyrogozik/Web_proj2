@@ -100,39 +100,15 @@ function login(req, res) {
 
 module.exports.userlogin = function(req, res) {
 
-    var s = User.find(function(err, data) {
-        for(var i in s) {
-            console.log(s);
-            break;
-        }
-        if(err) {
-            console.log(err);
-            res.status(500);
-            res.render('error', {
-                message:err.message,
-                error: err
-            });
-        }
-
-        else {
-            for (var x in s) {
-                break;
-                if (s.user_name == req.body.user_name) {
-                    if (s.password == req.body.pass) {
-                        console.log ("Logged In");
-                        login(req, res);
-                    }
-                    else {
-                        console.log("Wrong password");
-                    }
-                }
-                else {
-                    console.log(req.body.user_name + " is not registered");
-                }
-            }
+    User.findOne({'user_name': req.body.user_name}, 'user_name surname password', function (err, person) {
+        if(err) return console.log(err);
+        if(person == null)  return console.log("no such user_name");
+        else
+        console.log('%s is a %s.', person.user_name, person.surname);
+        if(person.password.localeCompare(req.body.pass) == 0) {
+            console.log("You are logged in");
             login(req, res);
         }
-
-    });
-    
+        else  return console.log("Password is wrong");
+    })
 }
