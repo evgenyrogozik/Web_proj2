@@ -1,4 +1,5 @@
 require('../models/db');
+var bCrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Comment = mongoose.model('Comment')
@@ -59,6 +60,7 @@ function comment(req, res) {
 
 module.exports.adduser = function(req, res) {
 
+    //var createHash =  bCrypt.hashSync(req.body.pass1, bCrypt.genSaltSync(10), null);
 	var newuser = new User({first_name: req.body.given_name, surname: req.body.surname, dob: req.body.dob, email: req.body.email, user_name: req.body.user_name, password: req.body.pass1});
 	console.log(newuser);
 	newuser.save(function(err, data) {
@@ -104,7 +106,7 @@ function login(req, res) {
 
 
 module.exports.userlogin = function(req, res) {
-
+   // var temp = bCrypt.hashSync(req.body.pass, bCrypt.genSaltSync(10), null);
     User.findOne({'user_name': req.body.user_name}, 'user_name surname password', function (err, person) {
         if(err) return console.log(err);
         if(person == null)  return console.log("no such user_name");
