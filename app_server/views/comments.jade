@@ -1,0 +1,43 @@
+extends layout
+block content
+  body(onload='footer_info();')
+    .page-wrap
+      header.header
+        .header_inner
+          .navigation
+            ul.navigation_inner
+              li
+                a.active(href='index.html') Home
+              li
+                a(href='game') Play Game
+              li
+                a(href='references.html') References used
+              li
+                a(href='howto.html') How To Play
+              li
+                a(href='about.html') About
+              li 
+                a(href='dynamic_test') DYNAMIC_TEST
+              li 
+                a(href='register') Register
+              li 
+                a(href='login') Login
+      .main-content
+        .clearfix
+          form(name="addcomment",method="post",action="/addcomment")
+            input.form-control(required='', type='text', placeholder='Your name' name='username')
+            textarea.form-control(required='', maxlength='200', rows='3', placeholder='Say something' name='message')
+            input.btn.submit-btn.pull-right(type='submit', value='submit')
+          #post-stream
+            h4 Comments
+            each s in comms
+              .post
+                p #{s.message}
+                small Posted by #{s.user_name}
+                small.pull-right #{s.date_created}
+    footer#fixed
+      .footer_title
+        h4  University of Western Australia
+        h4#last_modified
+        h4 Last visited: dd/mm/yyyy
+

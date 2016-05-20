@@ -1,6 +1,7 @@
 require('../models/db');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Comment = mongoose.model('Comment')
 
 /*Get Home Page*/
 module.exports.index = function (req, res) {
@@ -34,6 +35,28 @@ function reg(req, res) {
 	res.render('register',{title: 'Registration'});
 };
 
+module.exports.comments = comment;
+
+function comment(req, res) {
+    Comment
+        .find()
+            .sort({date_created: -1})
+            .exec(
+                function(err, commentData){
+                    if(err){
+                        res.render('error', {
+                        message:err.messagr,
+                        error: err
+                        });
+                    }
+                    else{
+                        console.log(commentData);
+                        console.log('find complete');
+                        res.render('comments',{'comms':commentData});
+                    }
+                });
+        }
+
 module.exports.adduser = function(req, res) {
 
 	var newuser = new User({first_name: req.body.given_name, surname: req.body.surname, dob: req.body.dob, email: req.body.email, user_name: req.body.user_name, password: req.body.pass1});
@@ -52,44 +75,26 @@ module.exports.adduser = function(req, res) {
 			reg(req, res);
 		}
 	});
-    // Set our internal DB variable
-
-    // Get our form values. These rely on the "name" attributes
-    /*var givenName = req.body.given_name;
-    var surname = req.body.surname;
-    var dob = req.body.dob;
-    var email = req.body.email;
-    var username = req.body.username;
-    var password = req.body.password;
-
-    //db.createCollection("newUser", newUser2)
-
-    // Set our collection
-    var collection = db.users.find();
-
-    // Submit to the DB
-    collection.insert({
-        "firstName" : givenName,
-        "surname" : surname,
-        "dob" : dob,
-        "email" : email,
-        "user_name" : username,
-        "password" : password
-    }, function (err, doc) {
-        if (err) {
-            // If it failed, return error
-            res.send("There was a problem adding the information to the database.");
-        }
-        else {
-            // And forward to success page
-            //res.redirect("userlist");
-            console.log("Hello");
-        }
-    });
-    */
-
 }
 
+module.exports.addcomment = function(req, res) {
+
+    var newcomment = new Comment({user_name: req.body.username, message: req.body.message, date_created: Date(), like: 76});
+    newcomment.save(function(err, data) {
+        if(err) {
+            console.log(err);
+            res.status(500);
+            res.render('error', {
+                message:err.message,
+                error: err
+            });
+        }
+        else {
+            console.log(data, ' saved');
+            comment(req, res);
+        }
+    });
+}
 
 module.exports.login = login;
 

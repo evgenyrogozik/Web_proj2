@@ -23,11 +23,15 @@ router.get('/register', ctrlMain.register)
 
 router.get('/login', ctrlMain.login)
 
+router.get('/comments', ctrlMain.comments)
+
 
 /* POST to Add User Service */
 router.post('/adduser', ctrlMain.adduser);
 
 router.post('/userlogin', ctrlMain.userlogin);
+
+router.post('/addcomment', ctrlMain.addcomment);
 
 
 module.exports = router;
