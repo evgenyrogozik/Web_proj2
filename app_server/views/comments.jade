@@ -7,7 +7,7 @@ block content
           .navigation
             ul.navigation_inner
               li
-                a.active(href='index.html') Home
+                a(href='/') Home
               li
                 a(href='game') Play Game
               li
@@ -17,19 +17,20 @@ block content
               li
                 a(href='about.html') About
               li 
-                a(href='dynamic_test') DYNAMIC_TEST
-              li 
                 a(href='register') Register
               li 
                 a(href='login') Login
+              li(style='pointer-events: none;')
+                a.active(href='comments') Feedbacks
       .main-content
         .clearfix
           form(name="addcomment",method="post",action="/addcomment")
-            input.form-control(required='', type='text', placeholder='Your name' name='username')
+            input.form-control(required='', type='text', value=userlogged, name='username' readonly)
             textarea.form-control(required='', maxlength='200', rows='3', placeholder='Say something' name='message')
             input.btn.submit-btn.pull-right(type='submit', value='submit')
           #post-stream
             h4 Comments
+            h4='You are logged in as: ' + userlogged
             each s in comms
               .post
                 p #{s.message}

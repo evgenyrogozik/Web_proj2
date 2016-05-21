@@ -16,15 +16,15 @@ block content
                 a(href='howto.html') How To Play
               li
                 a(href='about.html') About
-              li
-                a(href='dynamic_test') DYNAMIC_TEST
               li(style='pointer-events: none;')
                 a.active(href='register') Register
+              li#testlog
+                a(href='login') Login
+              li
+                a(href='comments') Feedbacks
       .main-content
         .content
           h1 Registration Form
-          h3
-            a(href='login') Login
           form#formAddUser(name="adduser",method="post",action="/adduser")
             | Given name:
             br
@@ -56,7 +56,7 @@ block content
             br
             br
             input(type='submit', value='Submit')
-      footer
+      footer#fixed
         .footer_title
           h4  University of Western Australia
           h4#last_modified

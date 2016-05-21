@@ -2,7 +2,8 @@ require('../models/db');
 var bCrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var Comment = mongoose.model('Comment')
+var Comment = mongoose.model('Comment');
+var loggeduser;
 
 /*Get Home Page*/
 module.exports.index = function (req, res) {
@@ -53,7 +54,7 @@ function comment(req, res) {
                     else{
                         console.log(commentData);
                         console.log('find complete');
-                        res.render('comments',{'comms':commentData});
+                        res.render('comments',{'comms':commentData, userlogged:loggeduser});
                     }
                 });
         }
@@ -74,7 +75,7 @@ module.exports.adduser = function(req, res) {
 		}
 		else {
 			console.log(data, ' saved');
-			reg(req, res);
+			res.redirect('/');
 		}
 	});
 }
@@ -93,7 +94,7 @@ module.exports.addcomment = function(req, res) {
         }
         else {
             console.log(data, ' saved');
-            comment(req, res);
+            res.redirect('/comments');
         }
     });
 }
@@ -114,7 +115,8 @@ module.exports.userlogin = function(req, res) {
         console.log('%s is a %s.', person.user_name, person.surname);
         if(person.password.localeCompare(req.body.pass) == 0) {
             console.log("You are logged in");
-            login(req, res);
+            loggeduser = person.user_name;
+            res.redirect('/');
         }
         else  return console.log("Password is wrong");
     })

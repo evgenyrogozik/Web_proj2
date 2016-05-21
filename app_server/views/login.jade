@@ -17,13 +17,15 @@ block content
               li
                 a(href='about.html') About
               li
-                a(href='dynamic_test') DYNAMIC_TEST
-              li
                 a(href='register') Register
+              li#testlog(style='pointer-events: none;')
+                a.active(href='login') Login
+              li
+                a(href='comments') Feedbacks
       .main-content
         .content
           h1 Login
-          form#formUserLogin(name="userlogin",method="post",action="/userlogin")
+          form#formUserLogin(name="userlogin",method="post",action="/userlogin" style='width:260px; margin:0 auto')
             |         User Name:
             br
             input(type='text', name='user_name')
@@ -33,7 +35,7 @@ block content
             input(type='password', name='pass')
             br
             input(type='submit', value='Submit')
-      footer
+      footer#fixed
         .footer_title
           h4  University of Western Australia
           h4#last_modified
