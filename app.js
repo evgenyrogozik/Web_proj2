@@ -8,6 +8,8 @@ var mongoose = require('./app_server/models/db');
 //var mongo = require('mongodb');
 //var monk = require('monk');
 //var db = monk('mongodb://localhost/test1db');
+var passport = require('passport');
+var LocalStrategy= require('passport-local').Strategy;
 
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -26,8 +28,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//for passport
+app.use(require('express-session')({
+  secret: 'CITS3403',
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.use('/', routes);
 app.use('/users', users);
+
+//passport config
+var Account = require('./app_server/models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -16,3 +16,5 @@ mongoose.connection.on('disconnected', function () {
 require('./user_model.js');
 require('./standings_model.js');
 require('./comments_model.js');
+require('./person.js');
+require('./chat.js');
